@@ -89,7 +89,7 @@ const BookList=()=> {
              genre:book.bookGenre
           }});
         //  if( response && Object.keys(response.data.updateBook).length!==0) {
-           console.log('Update local dataa herererrererererer',response);
+        //    console.log('Update local dataa herererrererererer',response);
         //  }
      }
    }
