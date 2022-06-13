@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache
+} from "@apollo/client";
+
+import BookList from "./components/BookList";
+import { useState } from "react";
+
+
+// spolo client setup
+const apolloClient = new ApolloClient({
+  uri:"http://localhost:4000/graphql",
+  cache: new InMemoryCache()
+}) 
+
 
 function App() {
+  // const [newBook,setNewBook] = useState({});
+
   return (
+    <ApolloProvider client={apolloClient}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1>Reading List</h1>
+      <BookList/>
+      <br/>
     </div>
+    </ApolloProvider>
   );
 }
 
